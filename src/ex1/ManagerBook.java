@@ -172,6 +172,7 @@ public class ManagerBook extends ArrayList<Book> {
     public void removeBookInfo(){
         System.out.println("Please enter the index of the book you want to remove: ");
         int indexEdit = Integer.parseInt(scanner.nextLine());
+//        run-time error : input string, double, float, out of range interger.
         while (indexEdit <0 || indexEdit >= size()){
             System.out.println("Invalid index, please enter a valid index: ");
             indexEdit = Integer.parseInt(scanner.nextLine());
@@ -193,5 +194,5 @@ public class ManagerBook extends ArrayList<Book> {
     }
 
 //    public void countBookByType() - finding a better solution for coungting book
-
+//        run-time error : input string, double, float, out of range interger.
 }
