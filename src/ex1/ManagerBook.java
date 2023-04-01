@@ -53,5 +53,27 @@ public class ManagerBook extends ArrayList<Book> {
             System.out.println("The total price of book from index " + indexCalFrom + " to " + indexCalTo + " is " + sum);
         } else System.out.println("Invalid index");
     }
+    public void countBookByPriceLesser(){
+        int count = 0;
+        System.out.println("Enter the price for lesser or equal count: ");
+        int priceToCheck = Integer.parseInt(scanner.nextLine());
+        for (Book book : this){
+            if (book.getPrice() <= priceToCheck ){
+                count++;
+            }
+        }
+        System.out.println("The number of book that have price less than or equal " + priceToCheck + " is " + count);
+    }
+    public void countBookByPriceHigher(){
+        int count = 0;
+        System.out.println("Enter the price for heigher count: ");
+        int priceToCheck = Integer.parseInt(scanner.nextLine());
+        for (Book book : this){
+            if (book.getPrice() > priceToCheck ){
+                count++;
+            }
+        }
+        System.out.println("The number of book that have price higher than " + priceToCheck + " is " + count);
+    }
 
 }
