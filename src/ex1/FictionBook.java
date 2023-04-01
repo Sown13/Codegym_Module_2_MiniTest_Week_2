@@ -6,8 +6,8 @@ public class FictionBook extends Book{
     public FictionBook() {
     }
 
-    public FictionBook(int bookCode, String name, int price, String author, String category) {
-        super(bookCode, name, price, author);
+    public FictionBook(String name, int price, String author, String category) {
+        super(name, price, author);
         this.category = category;
     }
 
@@ -17,5 +17,13 @@ public class FictionBook extends Book{
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "FictionBook{" +
+                super.toString() +
+                "category='" + category + '\'' +
+                '}';
     }
 }

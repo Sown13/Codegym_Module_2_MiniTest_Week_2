@@ -2,15 +2,15 @@ package ex1;
 
 public class ProgrammingBook extends Book{
     private String language;
-    private String faramework;
+    private String framework;
 
     public ProgrammingBook() {
     }
 
-    public ProgrammingBook(int bookCode, String name, int price, String author, String language, String faramework) {
-        super(bookCode, name, price, author);
+    public ProgrammingBook(String name, int price, String author, String language, String framework) {
+        super(name, price, author);
         this.language = language;
-        this.faramework = faramework;
+        this.framework = framework;
     }
 
     public String getLanguage() {
@@ -21,11 +21,20 @@ public class ProgrammingBook extends Book{
         this.language = language;
     }
 
-    public String getFaramework() {
-        return faramework;
+    public String getFramework() {
+        return framework;
     }
 
-    public void setFaramework(String faramework) {
-        this.faramework = faramework;
+    public void setFramework(String framework) {
+        this.framework = framework;
+    }
+
+    @Override
+    public String toString() {
+        return "ProgrammingBook{" +
+                super.toString() +
+                "language='" + language + '\'' +
+                ", framework='" + framework + '\'' +
+                '}';
     }
 }

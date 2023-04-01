@@ -1,16 +1,17 @@
 package ex1;
 
 public class Book {
-    private int bookCode;
+    private static int bookCode = 1000000;
     private String name;
     private int price;
     private String author;
 
     public Book() {
+        bookCode++;
     }
 
-    public Book(int bookCode, String name, int price, String author) {
-        this.bookCode = bookCode;
+    public Book(String name, int price, String author) {
+        bookCode++;
         this.name = name;
         this.price = price;
         this.author = author;
@@ -46,5 +47,14 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookID =" + this.getBookCode() +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", author='" + author + '\'';
     }
 }
