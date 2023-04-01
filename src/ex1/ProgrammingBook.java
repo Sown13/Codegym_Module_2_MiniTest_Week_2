@@ -31,10 +31,10 @@ public class ProgrammingBook extends Book{
 
     @Override
     public String toString() {
-        return "ProgrammingBook{" +
+        return "{" +
                 super.toString() +
                 "language='" + language + '\'' +
                 ", framework='" + framework + '\'' +
-                '}';
+                "}" + "\n";
     }
 }
