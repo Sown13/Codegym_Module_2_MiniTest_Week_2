@@ -136,11 +136,57 @@ public class ManagerBook extends ArrayList<Book> {
         System.out.println("The number of book that have category " + "'" + framework + "'" + " is " + count);
     }
     public void editBookInfo(){
-
+        System.out.println("Please enter the index of the book you want to edit: ");
+        int indexEdit = Integer.parseInt(scanner.nextLine());
+        while (indexEdit <0 || indexEdit >= size()){
+            System.out.println("Invalid index, please enter a valid index: ");
+            indexEdit = Integer.parseInt(scanner.nextLine());
+        }
+        System.out.println(this.get(indexEdit));
+        System.out.println("Enter the new book's name:");
+        String bookName = scanner.nextLine();
+        System.out.println("Enter the new book's price:");
+        int bookPrice = Integer.parseInt(scanner.nextLine());
+        isValidPrice(bookPrice);
+        System.out.println("Enter the new book's author:");
+        String bookAuthor = scanner.nextLine();
+        if (indexEdit < size()){
+            if (get(indexEdit) instanceof ProgrammingBook){
+                System.out.println("Enter the new book's programming language:");
+                String language = scanner.nextLine();
+                System.out.println("Enter the new framework:");
+                String framework = scanner.nextLine();
+                this.get(indexEdit).setName(bookName);
+                this.get(indexEdit).setPrice(bookPrice);
+                this.get(indexEdit).setAuthor(bookAuthor);
+                ((ProgrammingBook)this.get(indexEdit)).setLanguage(language);
+                ((ProgrammingBook)this.get(indexEdit)).setLanguage(framework);
+            } else if (get(indexEdit) instanceof FictionBook) {
+                System.out.println("Enter the book's category:");
+                String category = scanner.nextLine();
+                ((FictionBook)this.get(indexEdit)).setCategory(category);
+            }
+        }
     }
 
     public void removeBookInfo(){
-
+        System.out.println("Please enter the index of the book you want to remove: ");
+        int indexEdit = Integer.parseInt(scanner.nextLine());
+        while (indexEdit <0 || indexEdit >= size()){
+            System.out.println("Invalid index, please enter a valid index: ");
+            indexEdit = Integer.parseInt(scanner.nextLine());
+        }
+        System.out.println("You are trying to delete this book");
+        System.out.println(this.get(indexEdit));
+        System.out.println("Are you sure about this? ");
+        System.out.println("1/ Yes");
+        System.out.println("0/ No");
+        int choice = Integer.parseInt(scanner.nextLine());
+        if (choice == 1) {
+            remove(this.get(indexEdit));
+        } else {
+            System.out.println("Back to the main menu!");
+        }
     }
 
 //    public void countBookByType() - finding a better solution for coungting book
