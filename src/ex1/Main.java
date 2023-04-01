@@ -14,9 +14,10 @@ public class Main {
             System.out.println("3/ Show list of book");
             System.out.println("4/ Calculate total price");
             System.out.println("5/ Calculate total price of book in the range you want");
-            System.out.println("6/ Count book by price: ");
-            System.out.println("7/ Count book by type: ");
-            System.out.println("8/ Edit book info: ");
+            System.out.println("6/ Count book by price");
+            System.out.println("7/ Count book by type");
+            System.out.println("8/ Edit book info");
+            System.out.println("9/ Remove book info");
             System.out.println("0/ Exit");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -60,7 +61,14 @@ public class Main {
                         }
                     }
                 }
-                case 8 -> bookInventory.editBookInfo();
+                case 8 -> {
+                    System.out.println(bookInventory);
+                    bookInventory.editBookInfo();
+                }
+                case 9 -> {
+                    System.out.println(bookInventory);
+                    bookInventory.removeBookInfo();
+                }
                 case 0 -> System.exit(0);
             }
         }

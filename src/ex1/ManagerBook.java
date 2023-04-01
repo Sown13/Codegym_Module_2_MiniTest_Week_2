@@ -160,7 +160,7 @@ public class ManagerBook extends ArrayList<Book> {
                 this.get(indexEdit).setPrice(bookPrice);
                 this.get(indexEdit).setAuthor(bookAuthor);
                 ((ProgrammingBook)this.get(indexEdit)).setLanguage(language);
-                ((ProgrammingBook)this.get(indexEdit)).setLanguage(framework);
+                ((ProgrammingBook)this.get(indexEdit)).setFramework(framework);
             } else if (get(indexEdit) instanceof FictionBook) {
                 System.out.println("Enter the book's category:");
                 String category = scanner.nextLine();
@@ -184,7 +184,10 @@ public class ManagerBook extends ArrayList<Book> {
         int choice = Integer.parseInt(scanner.nextLine());
         if (choice == 1) {
             remove(this.get(indexEdit));
+            System.out.println("Successful removal");
+            System.out.println("Back to the main menu");
         } else {
+            System.out.println("Canceled");
             System.out.println("Back to the main menu!");
         }
     }

@@ -56,8 +56,9 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book name: " + name + "--" +
-                "bookID =" + this.getBookCode() +
+        return "Book name: " + name + "  - " +
+                " bookID =" + this.getBookCode() +
+                "\n" + "-----------------" +
                 ", price=" + price +
                 ", author='" + author + '\'';
     }
