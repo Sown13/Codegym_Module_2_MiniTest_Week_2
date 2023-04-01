@@ -18,6 +18,7 @@ public class Book {
         this.author = author;
         this.bookCode = bookID;
     }
+
     public int getBookID(){
         return bookID;
     }
