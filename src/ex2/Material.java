@@ -3,19 +3,22 @@ package ex2;
 import java.time.LocalDate;
 
 public abstract class Material {
-    String id;
-    String name;
-    LocalDate manufacturingDate;
-    int cost;
+    static int hiddenID = 10000;
+    public String id;
+    private String name;
+    private LocalDate getManufacturingDate;
+    private int cost;
 
     public Material() {
+        hiddenID++;
     }
 
     public Material(String id, String name, LocalDate manufacturingDate, int cost) {
         this.id = id;
         this.name = name;
-        this.manufacturingDate = manufacturingDate;
+        this.getManufacturingDate = manufacturingDate;
         this.cost = cost;
+        hiddenID++;
     }
     public abstract double getAmount();
     public abstract LocalDate getExpiryDate();
@@ -42,11 +45,11 @@ public abstract class Material {
     }
 
     public LocalDate getManufacturingDate() {
-        return manufacturingDate;
+        return getManufacturingDate;
     }
 
-    public void setManufacturingDate(LocalDate manufacturingDate) {
-        this.manufacturingDate = manufacturingDate;
+    public void setGetManufacturingDate(LocalDate getManufacturingDate) {
+        this.getManufacturingDate = getManufacturingDate;
     }
 
     public int getCost() {
@@ -55,5 +58,15 @@ public abstract class Material {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", getManufacturingDate=" + getManufacturingDate +
+                ", cost=" + cost +
+                '}';
     }
 }

@@ -14,12 +14,12 @@ public class Meat extends Material implements Discount {
     }
 
     public double getAmount() {
-        return weight * cost;
+        return weight * getCost();
     }
 
     @Override
     public LocalDate getExpiryDate() {
-        return this.manufacturingDate.plusDays(7);
+        return this.getManufacturingDate().plusDays(7);
     }
 
     @Override
@@ -27,9 +27,9 @@ public class Meat extends Material implements Discount {
         final double DISCOUNT30PERCENT = 7f / 10;
         final double DISCOUNT10PERCENT = 9f / 10;
         if (isExpired()) {
-            if (!manufacturingDate.plusDays(5).isAfter(LocalDate.now())) {
-                return cost * DISCOUNT30PERCENT;
-            } else return cost * DISCOUNT10PERCENT;
+            if (!getManufacturingDate().plusDays(5).isAfter(LocalDate.now())) {
+                return getCost() * DISCOUNT30PERCENT;
+            } else return getCost() * DISCOUNT10PERCENT;
         } else return 0;
     }
 
@@ -40,5 +40,13 @@ public class Meat extends Material implements Discount {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Meat{" +
+                "weight=" + weight +
+                '}';
     }
 }
