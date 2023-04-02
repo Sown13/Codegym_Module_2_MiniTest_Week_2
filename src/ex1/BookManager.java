@@ -3,10 +3,10 @@ package ex1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ManagerBook extends ArrayList<Book> {
+public class BookManager extends ArrayList<Book> {
     Scanner scanner = new Scanner(System.in);
 
-    public ManagerBook() {
+    public BookManager() {
     }
     public void isValidPrice(int priceToCheck){
         if (priceToCheck <= 0) {

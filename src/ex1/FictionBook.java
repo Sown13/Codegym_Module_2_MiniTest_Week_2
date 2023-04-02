@@ -1,7 +1,7 @@
 package ex1;
 
 public class FictionBook extends Book{
-    public String category;
+    private String category;
 
     public FictionBook() {
     }
