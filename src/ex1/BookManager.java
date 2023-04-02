@@ -8,13 +8,14 @@ public class BookManager extends ArrayList<Book> {
 
     public BookManager() {
     }
-    public void isValidPrice(int priceToCheck){
+
+    public void isValidPrice(int priceToCheck) {
         if (priceToCheck <= 0) {
             do {
                 System.out.println("Invalid price, please enter a valid price: ");
                 priceToCheck = Integer.parseInt(scanner.nextLine());
             }
-            while ( priceToCheck > 0 );
+            while (priceToCheck > 0);
         }
     }
 
@@ -135,10 +136,11 @@ public class BookManager extends ArrayList<Book> {
         }
         System.out.println("The number of book that have category " + "'" + framework + "'" + " is " + count);
     }
-    public void editBookInfo(){
+
+    public void editBookInfo() {
         System.out.println("Please enter the index of the book you want to edit: ");
         int indexEdit = Integer.parseInt(scanner.nextLine());
-        while (indexEdit <0 || indexEdit >= size()){
+        while (indexEdit < 0 || indexEdit >= size()) {
             System.out.println("Invalid index, please enter a valid index: ");
             indexEdit = Integer.parseInt(scanner.nextLine());
         }
@@ -150,30 +152,29 @@ public class BookManager extends ArrayList<Book> {
         isValidPrice(bookPrice);
         System.out.println("Enter the new book's author:");
         String bookAuthor = scanner.nextLine();
-        if (indexEdit < size()){
-            if (get(indexEdit) instanceof ProgrammingBook){
-                System.out.println("Enter the new book's programming language:");
-                String language = scanner.nextLine();
-                System.out.println("Enter the new framework:");
-                String framework = scanner.nextLine();
-                this.get(indexEdit).setName(bookName);
-                this.get(indexEdit).setPrice(bookPrice);
-                this.get(indexEdit).setAuthor(bookAuthor);
-                ((ProgrammingBook)this.get(indexEdit)).setLanguage(language);
-                ((ProgrammingBook)this.get(indexEdit)).setFramework(framework);
-            } else if (get(indexEdit) instanceof FictionBook) {
-                System.out.println("Enter the book's category:");
-                String category = scanner.nextLine();
-                ((FictionBook)this.get(indexEdit)).setCategory(category);
-            }
+        if (get(indexEdit) instanceof ProgrammingBook) {
+            System.out.println("Enter the new book's programming language:");
+            String language = scanner.nextLine();
+            System.out.println("Enter the new framework:");
+            String framework = scanner.nextLine();
+            this.get(indexEdit).setName(bookName);
+            this.get(indexEdit).setPrice(bookPrice);
+            this.get(indexEdit).setAuthor(bookAuthor);
+            ((ProgrammingBook) this.get(indexEdit)).setLanguage(language);
+            ((ProgrammingBook) this.get(indexEdit)).setFramework(framework);
+        } else if (get(indexEdit) instanceof FictionBook) {
+            System.out.println("Enter the book's category:");
+            String category = scanner.nextLine();
+            ((FictionBook) this.get(indexEdit)).setCategory(category);
         }
+
     }
 
-    public void removeBookInfo(){
+    public void removeBookInfo() {
         System.out.println("Please enter the index of the book you want to remove: ");
         int indexEdit = Integer.parseInt(scanner.nextLine());
 //        run-time error : input string, double, float, out of range interger.
-        while (indexEdit <0 || indexEdit >= size()){
+        while (indexEdit < 0 || indexEdit >= size()) {
             System.out.println("Invalid index, please enter a valid index: ");
             indexEdit = Integer.parseInt(scanner.nextLine());
         }

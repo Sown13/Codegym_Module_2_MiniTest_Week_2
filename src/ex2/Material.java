@@ -6,7 +6,7 @@ public abstract class Material {
     static int hiddenID = 10000;
     public String id;
     private String name;
-    private LocalDate getManufacturingDate;
+    private LocalDate manufacturingDate;
     private int cost;
 
     public Material() {
@@ -14,18 +14,16 @@ public abstract class Material {
     }
 
     public Material(String id, String name, LocalDate manufacturingDate, int cost) {
-        this.id = id;
+        this.id = id + hiddenID;
         this.name = name;
-        this.getManufacturingDate = manufacturingDate;
+        this.manufacturingDate = manufacturingDate;
         this.cost = cost;
         hiddenID++;
     }
     public abstract double getAmount();
     public abstract LocalDate getExpiryDate();
     public boolean isExpired(){
-        if (this.getExpiryDate().isAfter(LocalDate.now())){
-            return false;
-        } else return true;
+        return !this.getExpiryDate().isAfter(LocalDate.now());
     }
 
     public String getId() {
@@ -45,11 +43,11 @@ public abstract class Material {
     }
 
     public LocalDate getManufacturingDate() {
-        return getManufacturingDate;
+        return manufacturingDate;
     }
 
-    public void setGetManufacturingDate(LocalDate getManufacturingDate) {
-        this.getManufacturingDate = getManufacturingDate;
+    public void setManufacturingDate(LocalDate manufacturingDate) {
+        this.manufacturingDate = manufacturingDate;
     }
 
     public int getCost() {
@@ -62,11 +60,10 @@ public abstract class Material {
 
     @Override
     public String toString() {
-        return "Material{" +
+        return
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", getManufacturingDate=" + getManufacturingDate +
-                ", cost=" + cost +
-                '}';
+                ", name= '" + name + '\'' +
+                ", ManufacturingDate= " + manufacturingDate +
+                ", cost= " + cost ;
     }
 }

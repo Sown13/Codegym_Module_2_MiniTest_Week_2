@@ -11,7 +11,6 @@ public class CrispyFlour extends Material implements Discount{
     public CrispyFlour(String id, String name, LocalDate manufacturingDate, int cost, int quantity) {
         super(id, name, manufacturingDate, cost);
         this.quantity = quantity;
-        this.id = id + hiddenID;
     }
 
     public double getAmount(){
@@ -48,8 +47,8 @@ public class CrispyFlour extends Material implements Discount{
     @Override
     public String toString() {
         return super.toString() +
-                "CrispyFlour{" +
-                "quantity=" + quantity +
-                '}';
+                ", Expiring Date= " + getExpiryDate() +
+                ", quantity= " + quantity +
+                "\n";
     }
 }

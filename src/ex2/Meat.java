@@ -45,8 +45,8 @@ public class Meat extends Material implements Discount {
     @Override
     public String toString() {
         return super.toString() +
-                "Meat{" +
-                "weight=" + weight +
-                '}';
+                ", Expiring Date= " + getExpiryDate() +
+                ", weight= " + weight +
+                "\n";
     }
 }
