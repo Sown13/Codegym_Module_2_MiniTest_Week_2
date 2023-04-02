@@ -7,6 +7,26 @@ public class Main {
         BookManager bookInventory = new BookManager();
         Scanner scanner = new Scanner(System.in);
         int choice;
+        Book book1 = new ProgrammingBook("book1", 50,"Son","java","springs");
+        Book book2 = new ProgrammingBook("book2", 700,"Son","html","bootstrap");
+        Book book3 = new ProgrammingBook("book3", 100,"Nam","js","springs");
+        Book book4 = new ProgrammingBook("book4", 150,"Son","java","reactJ");
+        Book book5 = new ProgrammingBook("book5", 200,"Hai","java","springs");
+        Book book6 = new FictionBook("book6", 50,"Son","Viễn tưởng 1");
+        Book book7 = new FictionBook("book7", 200,"Hung","fiction 2");
+        Book book8 = new FictionBook("book8", 100,"Thi","Viễn tưởng 1");
+        Book book9 = new FictionBook("book9", 150,"Giang","not fiction");
+        Book book10 = new FictionBook("book10", 300,"Son","actually science");
+        bookInventory.add(book1);
+        bookInventory.add(book2);
+        bookInventory.add(book3);
+        bookInventory.add(book4);
+        bookInventory.add(book5);
+        bookInventory.add(book6);
+        bookInventory.add(book7);
+        bookInventory.add(book8);
+        bookInventory.add(book9);
+        bookInventory.add(book10);
         while (true) {
             System.out.println("Please choose your action:");
             System.out.println("1/ Add Programming Book");
