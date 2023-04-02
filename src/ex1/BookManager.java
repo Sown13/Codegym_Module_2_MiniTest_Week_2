@@ -9,14 +9,12 @@ public class BookManager extends ArrayList<Book> {
     public BookManager() {
     }
 
-    public void isValidPrice(int priceToCheck) {
-        if (priceToCheck <= 0) {
-            do {
-                System.out.println("Invalid price, please enter a valid price: ");
-                priceToCheck = Integer.parseInt(scanner.nextLine());
-            }
-            while (priceToCheck > 0);
+    public int validPrice(int priceToCheck) {
+        while (priceToCheck < 0) {
+            System.out.println("Invalid price, please enter a valid price: ");
+            priceToCheck = Integer.parseInt(scanner.nextLine());
         }
+        return priceToCheck;
     }
 
     public void addProgrammingBook() {
@@ -24,7 +22,7 @@ public class BookManager extends ArrayList<Book> {
         String bookName = scanner.nextLine();
         System.out.println("Enter the book's price:");
         int bookPrice = Integer.parseInt(scanner.nextLine());
-        isValidPrice(bookPrice);
+        bookPrice = validPrice(bookPrice);
         System.out.println("Enter the book's author:");
         String bookAuthor = scanner.nextLine();
         System.out.println("Enter the book's programming language:");
@@ -40,7 +38,7 @@ public class BookManager extends ArrayList<Book> {
         String bookName = scanner.nextLine();
         System.out.println("Enter the book's price:");
         int bookPrice = Integer.parseInt(scanner.nextLine());
-        isValidPrice(bookPrice);
+        bookPrice = validPrice(bookPrice);
         System.out.println("Enter the book's author:");
         String bookAuthor = scanner.nextLine();
         System.out.println("Enter the book's category:");
@@ -149,7 +147,7 @@ public class BookManager extends ArrayList<Book> {
         String bookName = scanner.nextLine();
         System.out.println("Enter the new book's price:");
         int bookPrice = Integer.parseInt(scanner.nextLine());
-        isValidPrice(bookPrice);
+        bookPrice = validPrice(bookPrice);
         System.out.println("Enter the new book's author:");
         String bookAuthor = scanner.nextLine();
         if (get(indexEdit) instanceof ProgrammingBook) {
@@ -173,7 +171,7 @@ public class BookManager extends ArrayList<Book> {
     public void removeBookInfo() {
         System.out.println("Please enter the index of the book you want to remove: ");
         int indexEdit = Integer.parseInt(scanner.nextLine());
-//        run-time error : input string, double, float, out of range interger.
+//        run-time error : input string, double, float, out of range integer.
         while (indexEdit < 0 || indexEdit >= size()) {
             System.out.println("Invalid index, please enter a valid index: ");
             indexEdit = Integer.parseInt(scanner.nextLine());
@@ -194,6 +192,6 @@ public class BookManager extends ArrayList<Book> {
         }
     }
 
-//    public void countBookByType() - finding a better solution for coungting book
-//        run-time error : input string, double, float, out of range interger.
+//    public void countBookByType() - finding a better solution for counting book
+//        run-time error : input string, double, float, out of range integer.
 }
