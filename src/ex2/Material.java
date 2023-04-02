@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public abstract class Material {
     static int hiddenID = 10000;
-    public String id;
+    private String id;
     private String name;
     private LocalDate manufacturingDate;
     private int cost;

@@ -34,6 +34,7 @@ public class Main {
             System.out.println("2/ Show list of materials");
             System.out.println("3/ Edit list");
             System.out.println("4/ Remove material from list");
+            System.out.println("5/ Check different price before and after discount by index:");
             System.out.println("0/ Exit");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -41,6 +42,7 @@ public class Main {
                 case 2 -> System.out.println(materialInventory);
                 case 3 -> materialInventory.editListByIndex();
                 case 4 -> materialInventory.removeMaterialFromList();
+                case 5 -> materialInventory.checkBenefitFromDiscount();
                 case 0 -> System.exit(0);
             }
         }

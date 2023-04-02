@@ -136,9 +136,22 @@ public class MaterialManager extends ArrayList<Material> {
         }
     }
     public void priceDifferentAfterDiscount(CrispyFlour flour){
-        System.out.println(flour.getDifferentPrice());
+        System.out.println("The different amount of money between before and after discount is: " + flour.getDifferentPrice());
     }
-    public void priceDifferentAfterDiscount(Meat flour){
-        System.out.println(flour.getDifferentPrice());
+    public void priceDifferentAfterDiscount(Meat meat){
+        System.out.println("The different amount of money between before and after discount is: " + meat.getDifferentPrice());
+    }
+    public void checkBenefitFromDiscount(){
+        System.out.println("Enter the index of material that you want to check");
+        int indexCheck = Integer.parseInt(scanner.nextLine());
+        while (indexCheck < 0 || indexCheck >= size()) {
+            System.out.println("Invalid index, please enter a valid index: ");
+            indexCheck = Integer.parseInt(scanner.nextLine());
+        }
+        if (this.get(indexCheck) instanceof Meat ){
+            this.priceDifferentAfterDiscount((Meat) this.get(indexCheck));
+        } else if (this.get(indexCheck) instanceof  CrispyFlour) {
+            this.priceDifferentAfterDiscount((CrispyFlour) this.get(indexCheck));
+        }
     }
 }
