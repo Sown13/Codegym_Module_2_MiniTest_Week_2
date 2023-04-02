@@ -9,13 +9,13 @@ public class Main {
         Material meat1 = new Meat("m12", "meat1", LocalDate.of(2023,4,1), 100, 10 );
         Material meat2 = new Meat("m24", "meat2", LocalDate.of(2023,4,1), 200, 5 );
         Material meat3 = new Meat("m13", "meat1", LocalDate.of(2023,3,25), 300, 15 );
-        Material meat4 = new Meat("m12", "meat1", LocalDate.of(2023,4,2), 400, 5 );
+        Material meat4 = new Meat("m12", "meat1", LocalDate.of(2023,3,27), 400, 5 );
         Material meat5 = new Meat("m11", "meat1", LocalDate.of(2023,4,3), 200, 10 );
         Material flour1 = new CrispyFlour("f10","flour1",LocalDate.of(2022,3,1),50,10);
         Material flour2 = new CrispyFlour("f20","flour2",LocalDate.of(2022,8,1),100,20);
         Material flour3 = new CrispyFlour("f30","flour3",LocalDate.of(2023,1,1),150,30);
         Material flour4 = new CrispyFlour("f20","flour4",LocalDate.of(2023,2,1),200,20);
-        Material flour5 = new CrispyFlour("f40","flour5",LocalDate.of(2022,12,1),300,10);
+        Material flour5 = new CrispyFlour("f40","flour5",LocalDate.of(2022,5,1),300,10);
         Scanner scanner = new Scanner(System.in);
         materialInventory.add(meat1);
         materialInventory.add(meat2);
@@ -34,7 +34,6 @@ public class Main {
             System.out.println("2/ Show list of materials");
             System.out.println("3/ Edit list");
             System.out.println("4/ Remove material from list");
-            System.out.println("5/ Calculate different price before and after discount today:");
             System.out.println("0/ Exit");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -42,7 +41,6 @@ public class Main {
                 case 2 -> System.out.println(materialInventory);
                 case 3 -> materialInventory.editListByIndex();
                 case 4 -> materialInventory.removeMaterialFromList();
-                case 5 -> materialInventory.calculatePriceDifferent();
                 case 0 -> System.exit(0);
             }
         }

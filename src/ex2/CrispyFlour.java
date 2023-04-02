@@ -27,19 +27,23 @@ public class CrispyFlour extends Material implements Discount{
         final double DISCOUNT40PERCENT = 6f / 10;
         final double DISCOUNT20PERCENT = 8f / 10;
         final double DISCOUNT5PERCENT = 9.5 / 10;
-        boolean expireDateLessThan2Months = !getManufacturingDate().plusMonths(2).isAfter(LocalDate.now());
-        boolean expireDateLessThan4Months = !getManufacturingDate().plusMonths(4).isAfter(LocalDate.now());
+        LocalDate dayExpireBefore2Month = (getExpiryDate().minusMonths(2));
+        LocalDate dayExpireBefore4Month = (getExpiryDate().minusMonths(4));
         if(isExpired()) {
-            if (expireDateLessThan2Months) {
-                return getCost() * DISCOUNT40PERCENT;
-            } else if (expireDateLessThan4Months) {
-                return getCost() * DISCOUNT20PERCENT;
-            } else return getCost() * DISCOUNT5PERCENT;
+            if (dayExpireBefore2Month.isBefore(LocalDate.now())) {
+                return getAmount() * DISCOUNT40PERCENT;
+            } else if (dayExpireBefore4Month.isBefore(LocalDate.now())) {
+                return getAmount() * DISCOUNT20PERCENT;
+            } else return getAmount() * DISCOUNT5PERCENT;
         } else return 0;
     }
+
     @Override
-    public double getDifferentPrice(){
-        return this.getCost() - getRealMoney();
+    public double getDifferentPrice() {
+        boolean materialUnexpired = (getRealMoney() != 0);
+        if (materialUnexpired) {
+            return this.getAmount() - getRealMoney();
+        } return 0;
     }
 
     public int getQuantity() {
@@ -55,6 +59,9 @@ public class CrispyFlour extends Material implements Discount{
         return super.toString() +
                 ", Expiring Date= " + getExpiryDate() +
                 ", quantity= " + getQuantity() +
+                ", Price before Discount: " + getAmount() +
+                ", After Discount:" + getRealMoney() +
+                ", Different Price= " + getDifferentPrice() +
                 "\n";
     }
 }

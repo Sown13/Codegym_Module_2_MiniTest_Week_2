@@ -135,7 +135,10 @@ public class MaterialManager extends ArrayList<Material> {
             System.out.println("Back to the main menu!");
         }
     }
-    public void calculatePriceDifferent(){
-
+    public void priceDifferentAfterDiscount(CrispyFlour flour){
+        System.out.println(flour.getDifferentPrice());
+    }
+    public void priceDifferentAfterDiscount(Meat flour){
+        System.out.println(flour.getDifferentPrice());
     }
 }

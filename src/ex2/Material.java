@@ -23,7 +23,7 @@ public abstract class Material {
     public abstract double getAmount();
     public abstract LocalDate getExpiryDate();
     public boolean isExpired(){
-        return !this.getExpiryDate().isAfter(LocalDate.now());
+        return !LocalDate.now().isAfter(this.getExpiryDate());
     }
 
     public String getId() {
@@ -61,7 +61,7 @@ public abstract class Material {
     @Override
     public String toString() {
         return
-                "id='" + id + '\'' +
+                "id='" + getId() + '\'' +
                 ", name= '" + name + '\'' +
                 ", ManufacturingDate= " + manufacturingDate +
                 ", cost= " + cost ;
