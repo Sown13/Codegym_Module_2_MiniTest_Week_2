@@ -135,4 +135,7 @@ public class MaterialManager extends ArrayList<Material> {
             System.out.println("Back to the main menu!");
         }
     }
+    public void calculatePriceDifferent(){
+
+    }
 }

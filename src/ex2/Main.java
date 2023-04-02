@@ -34,11 +34,7 @@ public class Main {
             System.out.println("2/ Show list of materials");
             System.out.println("3/ Edit list");
             System.out.println("4/ Remove material from list");
-//            System.out.println("5/ Calculate total price of book in the range you want");
-//            System.out.println("6/ Count book by price");
-//            System.out.println("7/ Count book by type");
-//            System.out.println("8/ Edit book info");
-//            System.out.println("9/ Remove book info");
+            System.out.println("5/ Calculate different price before and after discount today:");
             System.out.println("0/ Exit");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -46,6 +42,7 @@ public class Main {
                 case 2 -> System.out.println(materialInventory);
                 case 3 -> materialInventory.editListByIndex();
                 case 4 -> materialInventory.removeMaterialFromList();
+                case 5 -> materialInventory.calculatePriceDifferent();
                 case 0 -> System.exit(0);
             }
         }
